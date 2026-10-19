@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -8,6 +6,7 @@
     <title>Centre des Cours Scientifiques</title>
 
     <link rel="stylesheet" href="style.css">
+    <script src="app.js" defer></script>
 </head>
 
 <body>
@@ -113,35 +112,6 @@
     <footer>
         <p>&copy; 2026 Centre des Cours Scientifiques</p>
     </footer>
-
-    <script>
-        const recherche = document.getElementById("recherche");
-        const cartes = document.querySelectorAll(".card");
-
-        function afficherCours() {
-            const texte = recherche.value.toLowerCase();
-
-            cartes.forEach(function(carte) {
-                const matiere = carte.querySelector("h3").textContent.toLowerCase();
-                carte.style.display = matiere.includes(texte) ? "block" : "none";
-            });
-        }
-
-        recherche.addEventListener("input", afficherCours);
-
-        function filtrerCours(niveau) {
-            cartes.forEach(function(carte) {
-                const niveaux = carte.dataset.niveau;
-
-                const afficher =
-                    niveau === "Tous" || niveaux.includes(niveau);
-
-                carte.style.display = afficher ? "block" : "none";
-            });
-
-            recherche.value = "";
-        }
-    </script>
 
 </body>
 </html>
