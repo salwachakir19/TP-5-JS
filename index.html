@@ -14,7 +14,7 @@
 
     <header>
         <h1>Centre des Cours Scientifiques</h1>
-        <p>Réussir aujourd'hui pour préparer demain !</p>
+        <p>préparer aujourd'hui pour Réussir demain !</p>
     </header>
 
     <nav>
@@ -49,42 +49,42 @@
             <div class="card" data-niveau="Primaire Collège Secondaire">
                 <h3>Mathématiques</h3>
                 <p>Niveau : Tous les niveaux</p>
-                <p class="prix">100 DH / heure</p>
+                <p class="prix">100DH / heure</p>
                 <a href="#contact" class="bouton">Nous contacter</a>
             </div>
 
             <div class="card" data-niveau="Collège Secondaire">
                 <h3>Physique</h3>
                 <p>Niveau : Collège et Secondaire</p>
-                <p class="prix">120 DH / heure</p>
+                <p class="prix">100DH / heure</p>
                 <a href="#contact" class="bouton">Nous contacter</a>
             </div>
 
             <div class="card" data-niveau="Collège Secondaire">
                 <h3>Chimie</h3>
                 <p>Niveau : Collège et Secondaire</p>
-                <p class="prix">120 DH / heure</p>
+                <p class="prix">150DH / heure</p>
                 <a href="#contact" class="bouton">Nous contacter</a>
             </div>
 
             <div class="card" data-niveau="Primaire Collège Secondaire">
                 <h3>Français</h3>
                 <p>Niveau : Tous les niveaux</p>
-                <p class="prix">90 DH / heure</p>
+                <p class="prix">200 DH / heure</p>
                 <a href="#contact" class="bouton">Nous contacter</a>
             </div>
 
             <div class="card" data-niveau="Primaire Collège Secondaire">
                 <h3>Arabe</h3>
                 <p>Niveau : Tous les niveaux</p>
-                <p class="prix">90 DH / heure</p>
+                <p class="prix">100DH / heure</p>
                 <a href="#contact" class="bouton">Nous contacter</a>
             </div>
 
             <div class="card" data-niveau="Collège Secondaire">
                 <h3>Sciences de la Vie et de la Terre</h3>
                 <p>Niveau : Collège et Secondaire</p>
-                <p class="prix">100 DH / heure</p>
+                <p class="prix">200DH / heure</p>
                 <a href="#contact" class="bouton">Nous contacter</a>
             </div>
 
@@ -110,38 +110,11 @@
         <p><strong>Adresse :</strong> Marrakech, Maroc</p>
     </section>
 
-    <footer>
-        <p>&copy; 2026 Centre des Cours Scientifiques</p>
-    </footer>
 
-    <script>
-        const recherche = document.getElementById("recherche");
-        const cartes = document.querySelectorAll(".card");
+    
 
-        function afficherCours() {
-            const texte = recherche.value.toLowerCase();
-
-            cartes.forEach(function(carte) {
-                const matiere = carte.querySelector("h3").textContent.toLowerCase();
-                carte.style.display = matiere.includes(texte) ? "block" : "none";
-            });
-        }
-
-        recherche.addEventListener("input", afficherCours);
-
-        function filtrerCours(niveau) {
-            cartes.forEach(function(carte) {
-                const niveaux = carte.dataset.niveau;
-
-                const afficher =
-                    niveau === "Tous" || niveaux.includes(niveau);
-
-                carte.style.display = afficher ? "block" : "none";
-            });
-
-            recherche.value = "";
-        }
-    </script>
-
+<footer>
+    <p>&copy; 2026 Centre des Cours Scientifiques. Tous droits réservés.</p>
+</footer>
 </body>
 </html>
