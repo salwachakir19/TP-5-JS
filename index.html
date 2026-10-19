@@ -1,0 +1,147 @@
+
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centre des Cours Scientifiques</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Centre des Cours Scientifiques</h1>
+        <p>Réussir aujourd'hui pour préparer demain !</p>
+    </header>
+
+    <nav>
+        <a href="#accueil">Accueil</a>
+        <a href="#cours">Nos cours</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <section class="accueil" id="accueil">
+        <h2>Bienvenue dans notre centre</h2>
+        <p>Des cours de soutien pour tous les niveaux.</p>
+
+        <input
+            type="text"
+            id="recherche"
+            placeholder="Rechercher une matière..."
+        >
+
+        <div class="categories">
+            <button onclick="filtrerCours('Primaire')">Primaire</button>
+            <button onclick="filtrerCours('Collège')">Collège</button>
+            <button onclick="filtrerCours('Secondaire')">Secondaire</button>
+            <button onclick="filtrerCours('Tous')">Tous les cours</button>
+        </div>
+    </section>
+
+    <main>
+        <h2 id="cours">Nos matières</h2>
+
+        <div class="liste-cours">
+
+            <div class="card" data-niveau="Primaire Collège Secondaire">
+                <h3>Mathématiques</h3>
+                <p>Niveau : Tous les niveaux</p>
+                <p class="prix">100 DH / heure</p>
+                <a href="#contact" class="bouton">Nous contacter</a>
+            </div>
+
+            <div class="card" data-niveau="Collège Secondaire">
+                <h3>Physique</h3>
+                <p>Niveau : Collège et Secondaire</p>
+                <p class="prix">120 DH / heure</p>
+                <a href="#contact" class="bouton">Nous contacter</a>
+            </div>
+
+            <div class="card" data-niveau="Collège Secondaire">
+                <h3>Chimie</h3>
+                <p>Niveau : Collège et Secondaire</p>
+                <p class="prix">120 DH / heure</p>
+                <a href="#contact" class="bouton">Nous contacter</a>
+            </div>
+
+            <div class="card" data-niveau="Primaire Collège Secondaire">
+                <h3>Français</h3>
+                <p>Niveau : Tous les niveaux</p>
+                <p class="prix">90 DH / heure</p>
+                <a href="#contact" class="bouton">Nous contacter</a>
+            </div>
+
+            <div class="card" data-niveau="Primaire Collège Secondaire">
+                <h3>Arabe</h3>
+                <p>Niveau : Tous les niveaux</p>
+                <p class="prix">90 DH / heure</p>
+                <a href="#contact" class="bouton">Nous contacter</a>
+            </div>
+
+            <div class="card" data-niveau="Collège Secondaire">
+                <h3>Sciences de la Vie et de la Terre</h3>
+                <p>Niveau : Collège et Secondaire</p>
+                <p class="prix">100 DH / heure</p>
+                <a href="#contact" class="bouton">Nous contacter</a>
+            </div>
+
+        </div>
+    </main>
+
+    <section class="contact" id="contact">
+        <h2>Contactez-nous</h2>
+        <p>Pour plus d'informations sur nos cours, contactez notre centre.</p>
+
+        <p>
+            <strong>Email :</strong>
+            <a href="mailto:contact@centre-scientifique.ma">
+                contact@centre-scientifique.ma
+            </a>
+        </p>
+
+        <p>
+            <strong>Téléphone :</strong>
+            <a href="tel:+212612345678">06 12 34 58 78</a>
+        </p>
+
+        <p><strong>Adresse :</strong> Marrakech, Maroc</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Centre des Cours Scientifiques</p>
+    </footer>
+
+    <script>
+        const recherche = document.getElementById("recherche");
+        const cartes = document.querySelectorAll(".card");
+
+        function afficherCours() {
+            const texte = recherche.value.toLowerCase();
+
+            cartes.forEach(function(carte) {
+                const matiere = carte.querySelector("h3").textContent.toLowerCase();
+                carte.style.display = matiere.includes(texte) ? "block" : "none";
+            });
+        }
+
+        recherche.addEventListener("input", afficherCours);
+
+        function filtrerCours(niveau) {
+            cartes.forEach(function(carte) {
+                const niveaux = carte.dataset.niveau;
+
+                const afficher =
+                    niveau === "Tous" || niveaux.includes(niveau);
+
+                carte.style.display = afficher ? "block" : "none";
+            });
+
+            recherche.value = "";
+        }
+    </script>
+
+</body>
+</html>
